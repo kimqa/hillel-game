@@ -4,6 +4,7 @@ import game.market.Characteristics;
 import game.market.Inventory;
 
 import java.util.List;
+import java.util.Random;
 
 public abstract class Unit {
 
@@ -17,15 +18,18 @@ public abstract class Unit {
 
     double creatProbability;
 
+    double creatAttackCoefficient;
+
     private List<Inventory> inventoryList;
 
-    public abstract void fight(Unit unit);
 
-    public abstract void physicalAttack(Unit unit);
+    public double hit(Unit enemy) {
 
-    public abstract void magicalAttack(Unit unit);
+        double baseAttackDamage = (1- enemy.armor) *attack;
+        double c = (new Random().nextInt(100) <=creatProbability) ? creatAttackCoefficient : 1;
 
-    public abstract void freezeAttack(Unit unit);
+        return (baseAttackDamage * c);
+    }
 
     public void addInventory(Inventory inventory) {
         inventoryList.add(inventory);
