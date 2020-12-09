@@ -25,8 +25,8 @@ public abstract class Unit {
 
     public double hit(Unit enemy) {
 
-        double baseAttackDamage = (1- enemy.armor) *attack;
-        double c = (new Random().nextInt(100) <=creatProbability) ? creatAttackCoefficient : 1;
+        double baseAttackDamage = (1- enemy.armor) *attack; //https://www.youtube.com/watch?v=KYgBWCW1gPE&t=0s&ab_channel=h_channel_2
+        double c = (new Random().nextInt(100) <=creatProbability) ? creatAttackCoefficient : 1; //https://www.youtube.com/watch?v=KYgBWCW1gPE&t=674s&ab_channel=h_channel_2
 
         return (baseAttackDamage * c);
     }
