@@ -8,7 +8,7 @@ import java.util.Random;
 
 public abstract class Unit {
 
-    int level;
+    int level ;
 
     double healthLevel;
 
