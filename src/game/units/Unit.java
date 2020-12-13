@@ -22,13 +22,23 @@ public abstract class Unit {
 
     private List<Inventory> inventoryList;
 
-
     public double hit(Unit enemy) {
 
         double baseAttackDamage = (1- enemy.armor) *attack; //https://www.youtube.com/watch?v=KYgBWCW1gPE&t=0s&ab_channel=h_channel_2
         double c = (new Random().nextInt(100) <=creatProbability) ? creatAttackCoefficient : 1; //https://www.youtube.com/watch?v=KYgBWCW1gPE&t=674s&ab_channel=h_channel_2
 
         return (baseAttackDamage * c);
+    }
+
+    public void getDamage(double damage) {
+
+        healthLevel =-damage;
+    }
+
+    public void getLevel(int level) {
+        healthLevel = healthLevel + ((level-1) * 0.02)*healthLevel;
+        armor = armor + ((level-1)*0.01)*armor;
+        attack = attack + ((level-1)*0.02)*attack;
     }
 
     public void addInventory(Inventory inventory) {
@@ -46,3 +56,9 @@ public abstract class Unit {
         return healthLevel + healthChange;
     }
 }
+/**
+ - написать методы для юнитов
+ - отнаследовать юнитов других героях в каждом задать параметры
+ - Сделать Класс для боя
+ - Сделать Класс для выбота персонажей
+ **/
