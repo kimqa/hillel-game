@@ -20,6 +20,22 @@ public abstract class Unit {
 
     double creatAttackCoefficient;
 
+    public Unit(int level, double healthLevel, double attack, double armor, double creatProbability, double creatAttackCoefficient) {
+        this.level = level;
+        this.healthLevel = healthLevel;
+        this.attack = attack;
+        this.armor = armor;
+        this.creatProbability = creatProbability;
+        this.creatAttackCoefficient = creatAttackCoefficient;
+    }
+
+    @Override
+    public String toString() {
+        return "healthLevel : " + healthLevel + "\"" +
+                "Level : " + level + "\"" +
+                "atatck :" + attack+ "\"";
+    }
+
     private List<Inventory> inventoryList;
 
     public double hit(Unit enemy) {
@@ -31,14 +47,13 @@ public abstract class Unit {
     }
 
     public void getDamage(double damage) {
-
         healthLevel =-damage;
     }
 
-    public void getLevel(int level) {
-        healthLevel = healthLevel + ((level-1) * 0.02)*healthLevel;
-        armor = armor + ((level-1)*0.01)*armor;
-        attack = attack + ((level-1)*0.02)*attack;
+    public void getLevel() {
+        healthLevel = healthLevel + ((this.level-1) * 0.02)*healthLevel;
+        armor = armor + ((this.level-1)*0.01)*armor;
+        attack = attack + ((this.level-1)*0.02)*attack;
     }
 
     public void addInventory(Inventory inventory) {

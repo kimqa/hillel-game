@@ -1,10 +1,9 @@
 package game.fight;
 
+import game.units.Knight;
 import game.units.Unit;
 
-import java.util.List;
 import java.util.Random;
-import java.util.stream.Stream;
 
 public class Fight {
 
@@ -12,17 +11,28 @@ public class Fight {
 
     private Unit enemy;
 
-    private List<Unit> teamPlayers;
-
-    private  List<Unit> teamEnemy;
+//    private List<Unit> teamPlayers;
+//
+//    private  List<Unit> teamEnemy;
 
     private Random random = new Random();
 
-    public void attack() {
+//    public void attack() {
+//
+//        for(Unit unit : teamPlayers) {
+//            Stream<Unit> stream = teamPlayers.stream();
+//        }
+//    }
+    Knight knight1 = new Knight(1);
+    Knight knight2 = new Knight(1);
 
-        for(Unit unit : teamPlayers) {
-            Stream<Unit> stream = teamPlayers.stream();
-        }
+    public void fight() {
+        System.out.println("Start");
+
+        knight1.hit(knight2);
+
+        System.out.println(knight2.toString());
     }
+
 
 }
